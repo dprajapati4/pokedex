@@ -7,7 +7,24 @@
 
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon-container {
+  border: 5px solid black;
+  width: 650px;
+  height: 500px;
+  background-color: rgb(224, 109, 109);
+  overflow: scroll;
+  margin: 10px auto;
 }
 
+.details {
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+.moves {
+  border-left: 3px solid black;
+}
