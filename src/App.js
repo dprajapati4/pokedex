@@ -36,7 +36,7 @@ function App() {
         <h1>Pokedex</h1>
       </header>
       <form>
-        <label htmlFor="search-bar">Enter Pokemon Name or Number</label>
+        <label htmlFor="search-bar">Enter Pokemon Name or Number </label>
         <input
           type="text"
           id="search-bar"
@@ -45,6 +45,9 @@ function App() {
           onChange={handleChange}
         />
         <button type="submit" onClick={handleSubmit}> Search </button>
+        <br/>
+        <br/>
+        <button type="submit" >Surprise Me </button>
       </form>
 
       {isLoading ? (

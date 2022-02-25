@@ -1,30 +1,59 @@
 .App {
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 
-.header {
+ .image-container {
+  border-bottom: 3px solid black;
+}
+
+h3 {
+
+  border-bottom: 3px solid black;
+  margin-bottom: 0;
+  padding-bottom: 20px;
 
 }
 
 .pokemon-container {
   border: 5px solid black;
+  border-radius: 4%;
   width: 650px;
   height: 500px;
   background-color: rgb(224, 109, 109);
   overflow: scroll;
   margin: 10px auto;
+
 }
+
 
 .details {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-evenly; */
+
 }
 
 li {
   list-style: none;
+  padding: 2px;
+  margin: 2px;
+  border: 2px solid black;
 }
 
 .moves {
   border-left: 3px solid black;
+}
+
+.type {
+  border: 2px soldi blue;
+}
+
+.info {
+  padding: 2px;
+  margin: 10px;
+}
+#move-list {
+ display: flex;
+ flex-wrap: wrap;
 }

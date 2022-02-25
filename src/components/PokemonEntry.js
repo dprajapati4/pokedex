@@ -9,20 +9,33 @@ const PokemonEntry = ({ pokemon }) => {
     <div className="pokemon-container">
       <h2 id="title">{capitalize(pokemon.name)}</h2>
       <div className="image-container">
-        <img
-          src={pokemon.sprites.front_default}
-          alt={pokemon.name}
-          // height="200px"
-        />
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       </div>
       <h3>About</h3>
       <div className="details">
-        <p> <strong>Weight: </strong> {pokemon.weight}</p>
+        <div className="info">
+          <p>
+            <strong>Weight: </strong> {pokemon.weight} hg
+          </p>
+          <p>
+            <strong>Height: </strong> {pokemon.height} dm
+          </p>
+          <p>
+            <strong>Type: </strong>
+            {pokemon.types.map((type) => {
+              return (
+                <span className="type" key={type.type.name}>
+                  {capitalize(type.type.name)}{' '}
+                </span>
+              );
+            })}
+          </p>
+        </div>
         <div className="moves">
-          <h4>Moves</h4>
-          <ul>
+          <h4>List of Moves</h4>
+          <ul id="move-list">
             {pokemon.moves.map((move) => {
-              return <li key={move.move.name}>{move.move.name}</li>;
+              return <li key={move.move.name}>{move.move.name} </li>;
             })}
           </ul>
         </div>
