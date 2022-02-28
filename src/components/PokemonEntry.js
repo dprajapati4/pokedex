@@ -1,10 +1,23 @@
+import axios from "axios";
+import { useState } from "react";
+
 const PokemonEntry = ({ pokemon }) => {
-  console.log('the poek', pokemon);
+
+  const [move, setMove] = useState('');
 
   const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
 
+  const handleClickMove = async (e) => {
+    e.preventDefault();
+    console.log('the event', e)
+    // const response = await axios.get(e)
+
+  }
+
+
+  console.log(pokemon.moves[0])
   return (
     <div className="pokemon-container">
       <h2 id="title">{capitalize(pokemon.name)}</h2>
@@ -24,9 +37,9 @@ const PokemonEntry = ({ pokemon }) => {
             <strong>Type: </strong>
             {pokemon.types.map((type) => {
               return (
-                <span className="type" key={type.type.name}>
-                  {capitalize(type.type.name)}{' '}
-                </span>
+                <p className="type" key={type.type.name} pokemon-type={type.type.name}>
+                  {capitalize(type.type.name)}
+                </p>
               );
             })}
           </p>
@@ -35,7 +48,7 @@ const PokemonEntry = ({ pokemon }) => {
           <h4>List of Moves</h4>
           <ul id="move-list">
             {pokemon.moves.map((move) => {
-              return <li key={move.move.name}>{move.move.name} </li>;
+              return <button id="moves-bttn" onClick={handleClickMove}> <li key={move.move.name}>{move.move.name} </li></button>;
             })}
           </ul>
         </div>

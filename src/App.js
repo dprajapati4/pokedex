@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Linkedin, Github, Code } from 'grommet-icons';
 import './App.css';
 
 import PokemonEntry from './components/PokemonEntry';
@@ -16,6 +17,11 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    console.log('e', e);
+
+    if (e.target.id === 'surprise') {
+      setSearchTerm(Math.floor(Math.random() * (899 - 1) + 1));
+    }
 
     try {
       const response = await axios.get(
@@ -30,6 +36,11 @@ function App() {
     }
   };
 
+  const randomize = (e) => {
+    const randomNum = Math.floor(Math.random() * (899 - 1) + 1);
+  };
+
+  console.log('sear', searchTerm);
   return (
     <div className="App">
       <header className="header">
@@ -44,10 +55,15 @@ function App() {
           value={searchTerm}
           onChange={handleChange}
         />
-        <button type="submit" onClick={handleSubmit}> Search </button>
-        <br/>
-        <br/>
-        <button type="submit" >Surprise Me </button>
+        <button type="submit" onClick={handleSubmit}>
+          {' '}
+          Search{' '}
+        </button>
+        <br />
+        <br />
+        <button id="surprise" type="submit" onClick={handleSubmit}>
+          Surprise Me{' '}
+        </button>
       </form>
 
       {isLoading ? (
@@ -55,6 +71,26 @@ function App() {
       ) : (
         pokemon && <PokemonEntry pokemon={pokemon} />
       )}
+
+      <footer id="footer">
+        Built by Deep Prajapati
+        <div className="icons">
+          <a
+            id="linkedIn"
+            href="https://www.linkedin.com/in/deepprajapati/
+          "
+          >
+            <Linkedin size="medium" color= '#0e76a8' padding="2px" />{' '}
+          </a>
+
+          <a
+            id="github"
+            href="https://github.com/dprajapati4/pokedex"
+          >
+            <Github size="medium" />{' '}
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
